@@ -1,0 +1,29 @@
+<template>
+  <require from="./resources/elements/transit-map"></require>
+
+  <header>
+    <div class="header-logo">
+      <a href="/">Transit Tracker</a>
+    </div>
+    <div class="header-menu">
+      <a href="#" click.delegate="openPreferences()">Preferences</a>
+    </div>
+  </header>
+  <div class="main-container">
+      <div class="form-container">
+        <form>
+          <label><input type="checkbox" checked.bind="535">535</label>
+          <label><input type="checkbox" checked.bind="597">597</label>
+        </form>
+        <button click.delegate="getRoutes()">Get Routes</button>
+      </div>
+      
+      <div class="map-container">
+        <!-- <transit-map></transit-map> -->
+      </div>
+  </div>
+
+
+
+
+</template>

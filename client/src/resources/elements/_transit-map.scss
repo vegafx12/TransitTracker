@@ -1,0 +1,23 @@
+#transit-map {
+  height: 65%;
+  margin: 0 auto;
+  box-shadow: 0 0 18px 8px rgba(75, 75, 75, .5);
+}
+
+ @media screen and (max-width: 320px) {
+  #transit-map {
+    width: 70%;
+  }
+} 
+
+@media screen and (min-width: 321px) and (max-width: 699px) {
+  #transit-map {
+    width: 75%;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  #transit-map {
+    width: 80%;
+  }
+}

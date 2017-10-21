@@ -1,0 +1,41 @@
+html,
+body {
+    font-family: $google-font-opensans;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    margin: 0 auto;
+    overflow-y: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(230, 230, 230)
+}
+
+header {
+    font-family: $google-font-syncopate;
+    font-weight: bold;
+    font-size: 1.5em;
+    display: flex;
+    width: 100%;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(41, 41, 41);
+
+    & div {
+        padding: 1em;
+    }
+}
+
+header > .header-menu {
+    font-size: .75em;
+}
+
+.table {
+    display: flex;
+    flex-flow: column wrap;
+}

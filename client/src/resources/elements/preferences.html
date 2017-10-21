@@ -1,0 +1,44 @@
+<template>
+    <ux-dialog>
+        <ux-dialog-body>
+            <h2>Set Favorite Routes</h2>
+            <p>We'll save the route information you select in your browser settings (local storage) so you won't have to set
+                it everytime you visit the site. Just pick the routes you ride most often, and these will be the default
+                routes displayed on the home page!</p>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            <input type="checkbox" name="selectAll" id="selectAll">
+                        </th>
+                        <th>
+                            Route Number
+                        </th>
+                        <th>
+                            Description
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr repeat.for="route of routes">
+                        <td>
+                            <input type="checkbox" name="${route.Route}" id="${route.Route}" value="${route.Route}">
+                        </td>
+                        <td>
+                            ${route.Route}
+                        </td>
+                        <td>
+                            ${route.Description}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </ux-dialog-body>
+
+        <ux-dialog-footer>
+            <button click.trigger="controller.cancel()">Cancel</button>
+            <button click.trigger="controller.ok()">Ok</button>
+        </ux-dialog-footer>
+    </ux-dialog>
+</template>
