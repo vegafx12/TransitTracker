@@ -1,0 +1,28 @@
+<template>
+    <ux-dialog>
+        <ux-dialog-body>
+            <h2>Welcome to Transit Tracker!</h2>
+            <p>Take a second to setup your favorite routes using the fields below! We'll save the routes you choose in your
+                browser so you won't have to set it everytime you visit the site. Just pick the routes you ride most often,
+                and these will be the default routes displayed on the home page!</p>
+            <!-- <h4>Not your first time and wondering why you're seeing this again?</h4>
+                <p>If you've already gone through this setup process before, chances are you're being prompted again due to the information wiped out from your browser storage. If you've recently cleared out your browsers' cookies, cache, temp files, etc., your favorites information will have been deleted too.</p> -->
+           
+
+            <div repeat.for="provider of providers">
+                    <input type="checkbox" value.bind="provider.Value" change.delegate="getRoutesBySelectedProviders($event.target.checked, provider.Value, provider.Text)"> ${provider.Text}
+            </div>
+            <div repeat.for="route of providerRoutes">
+                    <input type="checkbox" value.bind="providerRoutes">
+                    ${route.Description}
+            </div>
+
+        </ux-dialog-body>
+
+        <ux-dialog-footer>
+            ${providerRoutes}
+            <button click.trigger="controller.cancel()">Cancel</button>
+            <button click.trigger="controller.ok()">Ok</button>
+        </ux-dialog-footer>
+    </ux-dialog>
+</template>

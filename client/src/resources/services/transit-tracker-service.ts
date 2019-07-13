@@ -29,9 +29,17 @@ httpClient.configure(config => {
 export class TransitTrackerService {
 
   getProviders() {
+    let providers = [];
+
     httpClient.fetch('providers').then(res => {
       return res.json();
+    }).then(data => {
+      for (let i of data) {
+        providers.push(i);
+      }
     });
+    return providers;
+
   }
 
   getAllRoutes() {
@@ -40,13 +48,27 @@ export class TransitTrackerService {
     httpClient.fetch('routes').then(res => {
       return res.json();
     })
-    .then(data => {
-      for (let i of data) {
-        allRoutes.push(i);
+      .then(data => {
+        for (let i of data) {
+          allRoutes.push(i);
+        }
+      });
+    return allRoutes;
+  }
+
+  getRouteByProvider(providerID) {
+    let providerRoutes = [];
+
+    httpClient.fetch('routes').then(res => {
+      return res.json();
+    }).then(data => {
+      for(let i of data) {
+        if (i.ProviderID == providerID) {
+          providerRoutes.push(i);
+        }
       }
     });
-
-    return allRoutes;
+    return providerRoutes;
   }
 
 }

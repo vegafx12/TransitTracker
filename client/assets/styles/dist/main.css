@@ -38,14 +38,17 @@ header {
 header > .header-menu {
   font-size: .75em; }
 
-.table {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column wrap;
-          flex-flow: column wrap; }
+table {
+  table-layout: fixed;
+  width: 100%; }
+
+th, td {
+  text-align: left; }
+
+ux-dialog-container.active {
+  margin: 0 auto;
+  width: 50%;
+  overflow: hidden; }
 
 .main-container {
   height: 100%;

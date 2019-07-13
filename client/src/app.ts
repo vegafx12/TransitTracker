@@ -1,18 +1,31 @@
 import { autoinject } from "aurelia-framework";
 import { DialogService } from 'aurelia-dialog';
-import { Preferences } from "./resources/elements/preferences";
+import { Preferences } from "./resources/elements/dialogs/preferences";
+import { PreferencesNotSet } from "./resources/elements/dialogs/preferences-not-set";
 import { TransitTrackerService } from "./resources/services/transit-tracker-service";
 
 @autoinject
 export class App {
 
-    constructor(public dialogService: DialogService, public ttService: TransitTrackerService) { }
+    constructor(public dialogService: DialogService, public ttService: TransitTrackerService) {}
 
-    openPreferences() {
+    attached() {
+        if (!window.localStorage.getItem('user_preferences_fav_routes')) {
+            this.PreferencesNotSetDialog();
+        };
+    }
+
+    PreferencesNotSetDialog() {
+        this.dialogService.open({
+            viewModel: PreferencesNotSet,
+            lock: true
+        });
+    }
+
+    PreferencesDialog() {
         this.dialogService.open({
             viewModel: Preferences,
-            lock: false,
-            startingZIndex: 5
+            lock: false
         }).whenClosed(response => {
             if (!response.wasCancelled) {
                 console.log('good - ', response.output);
@@ -21,14 +34,6 @@ export class App {
             }
             console.log(response.output);
         });
-    }
-
-    getProviders() {
-        return this.ttService.getProviders();
-    }
-
-    getRoutes() {
-        return this.ttService.getRoutes();
     }
 
 }

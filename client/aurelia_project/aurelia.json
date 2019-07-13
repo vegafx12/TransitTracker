@@ -11,7 +11,7 @@
         "id": "web",
         "displayName": "Web",
         "index": "index.html",
-        "baseDir": ".",
+        "baseDir": "./client",
         "output": "scripts"
       }
     ],

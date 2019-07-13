@@ -35,7 +35,11 @@ header > .header-menu {
     font-size: .75em;
 }
 
-.table {
-    display: flex;
-    flex-flow: column wrap;
+table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
 }

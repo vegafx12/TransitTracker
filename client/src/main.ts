@@ -5,7 +5,10 @@ export function configure(aurelia: Aurelia) {
   aurelia.use
     .standardConfiguration()
     .feature('resources')
-    .plugin('aurelia-dialog');
+    .plugin('aurelia-dialog', dialogConfig => {
+      dialogConfig.useDefaults();
+      dialogConfig.settings.startingZIndex = 1100;
+    });
 
   if (environment.debug) {
     aurelia.use.developmentLogging();
